@@ -1,0 +1,20 @@
+<div class="filter-container">
+    <mat-form-field >
+      <input matInput placeholder="Field" (change)="inputValue()" [(ngModel)]="inputValue">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-select placeholder="Filter on" [(ngModel)]="choosedValue">
+          <mat-option>--</mat-option>
+          <mat-option value="ID">ID</mat-option>
+          <mat-option value="CODE">CODE</mat-option>
+          <mat-option value="NAME">NAME</mat-option>
+          <mat-option value="TYPE">TYPE</mat-option>
+      </mat-select>
+    </mat-form-field>
+   
+      <button mat-button (click)="getDataToFilterOn()">Search</button>
+   
+    
+  </div>
+

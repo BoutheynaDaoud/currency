@@ -1,0 +1,9 @@
+<h1 style="padding-left:1%">Available currencies </h1> 
+ <app-filter (filter)="loadFiltredCurrencies($event)"></app-filter>
+<br>
+
+<br>
+<app-grid></app-grid>
+<app-paginator  (currenciesToShow)="newCurrencies($event)" ></app-paginator>
+  
+

@@ -1,0 +1,3 @@
+<mat-grid-list #grid rowHeight="50px">
+  <mat-grid-tile *ngFor="let item of currencies" routerLink="/currency/{{item.id}}" >ID:{{item.id}} TYPE:national SYMBOL:{{item.attributes.symbol}}</mat-grid-tile>
+</mat-grid-list>
