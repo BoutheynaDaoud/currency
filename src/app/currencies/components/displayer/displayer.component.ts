@@ -12,7 +12,7 @@ export class DisplayerComponent implements OnInit {
   currencies = new Array<Currency>();
   isLoading = true;
   @Output() listOfCurrencies:  EventEmitter<any> = new EventEmitter();
-  constructor(private currenciesService: CurrenciesService, private  _http: HttpClient ) { }
+  constructor(private currenciesService: CurrenciesService) { }
 
   ngOnInit() {
   }

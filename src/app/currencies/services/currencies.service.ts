@@ -17,17 +17,15 @@ export class CurrenciesService {
   //});
   constructor(private _http: HttpClient) { }
 
-  loadAllCurrency(): Observable <Array<Currency>> {
-  return this._http.get(this.url, {
-    headers: {'Accept' : 'application/vnd.api+json', 'Access-Control-Allow-Origin' : '*'}
- }).pipe(map((response: any) => response.currencies));
+  loadAllCurrency(): Observable <Object> {
+  return this._http.get(this.url, {headers: {'Accept' : 'application/vnd.api+json', 'Access-Control-Allow-Origin' : '*'}}
+ );
 }
 getDetailsCurrency(id: string): Observable<Currency> {
     const url = 'https://api.openfintech.io/v1/currencies';
     return this._http.get<Currency>(`${url}/${id}`, {
       headers: {'Accept' : 'application/vnd.api+json', 'Access-Control-Allow-Origin' : '*'}
-   }).pipe(
-    map(currency => currency));
+   });
   }
 
 
@@ -42,6 +40,7 @@ getCurrencies(pageNumber: number, size: number): Observable<Currency[]> {
     map(currencies => currencies),
   );
 }
+
 getFiltredCurrencies(text: string, selectedValue: string): Observable<Currency[]> {
   const params: HttpParams = new HttpParams()
   .append('text', text)
@@ -49,9 +48,7 @@ getFiltredCurrencies(text: string, selectedValue: string): Observable<Currency[]
 
 return this._http.get<Currency[]>(this.url, {
   params,
-}).pipe(
-  map(currencies => currencies),
-);
+});
 }
   }
 

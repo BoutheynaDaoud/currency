@@ -22,9 +22,9 @@ export class PaginatorComponent implements OnInit {
   getData(pageEvent) {
     console.log(pageEvent);
   this.options = new PaginatorOptions();
-  this.options.index = this.paginator.pageIndex;
-  this.options.size = this.paginator.pageSize;
   this.options.length = this.paginator.length;
+  this.options.size = this.paginator.pageSize;
+  this.options.index = this.paginator.pageIndex;
   console.log(this.options);
   this.currenciesToShow.emit(this.options);
 }

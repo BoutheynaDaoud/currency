@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Currency } from '../../models/currency';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 import { MatGridList } from '@angular/material';
+import { CurrenciesService } from '../../services/currencies.service';
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
@@ -17,10 +18,10 @@ export class GridComponent implements OnInit, AfterContentInit {
     md: 4,
     sm: 2,
     xs: 1
-  }
+  };
 
   currencies: Currency[];
-  constructor( private  _http: HttpClient, private observableMedia: ObservableMedia ) { }
+  constructor(private observableMedia: ObservableMedia, private currenciesService: CurrenciesService) { }
 
   ngOnInit() {
     this.getAllCurrencies();
@@ -31,7 +32,7 @@ export class GridComponent implements OnInit, AfterContentInit {
     });
   }
   getAllCurrencies() {
-    this._http.get('./assets/json/currencies.json').subscribe(
+    this.currenciesService.loadAllCurrency().subscribe(
        data => {
          this.currencies = data as Currency[];
          console.log(JSON.stringify(data));
